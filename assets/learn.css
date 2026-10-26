@@ -1,0 +1,33 @@
+body { font-size: 16px; -webkit-text-size-adjust: 100%; }
+.card-hover { transition: transform .15s, box-shadow .15s; }
+.card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15, 23, 42, .08); }
+
+.sec-h { font-size: 1.15rem; font-weight: 700; color: #1e293b; margin-bottom: .75rem; padding-left: .6rem; border-left: 4px solid #0284c7; }
+.tag { display: inline-block; font-size: .75rem; padding: .15rem .55rem; border-radius: 999px; background: #f1f5f9; color: #475569; }
+.tag-axis { background: #e0f2fe; color: #0369a1; font-weight: 700; }
+
+.opt { display: flex; gap: .75rem; align-items: flex-start; width: 100%; text-align: left; min-height: 48px;
+  padding: .75rem 1rem; border: 2px solid #e2e8f0; border-radius: .9rem; background: #fff; color: #334155; line-height: 1.5; }
+.opt b { color: #94a3b8; flex: none; }
+.opt:hover { border-color: #7dd3fc; }
+.opt.right { border-color: #16a34a; background: #f0fdf4; }
+.opt.wrong { border-color: #dc2626; background: #fef2f2; }
+.opt.chosen:not(.right):not(.wrong) { border-color: #f59e0b; background: #fffbeb; }
+.opt.dim { opacity: .55; }
+
+.fb { border-radius: .9rem; padding: .9rem 1rem; line-height: 1.6; }
+.fb-ok { background: #f0fdf4; color: #14532d; }
+.fb-no { background: #fef2f2; color: #7f1d1d; }
+.fb-wait { background: #fffbeb; color: #78350f; }
+.btn-sm { display: inline-block; min-height: 44px; padding: .6rem 1.1rem; border-radius: .7rem; background: #0284c7; color: #fff; font-weight: 700; }
+.nav-btn { flex: 1; min-height: 48px; padding: .8rem 1rem; border-radius: .9rem; background: #fff; border: 1px solid #e2e8f0; color: #0369a1; font-weight: 700; }
+
+.card-md h3 { font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: .5rem; }
+.card-md p { color: #334155; line-height: 1.75; margin-bottom: .6rem; }
+.card-md ul { list-style: disc; padding-left: 1.3rem; color: #334155; line-height: 1.75; margin-bottom: .6rem; }
+.card-md strong { color: #0f172a; }
+.card-md code { background: #f1f5f9; padding: .1rem .35rem; border-radius: .3rem; }
+.card-md blockquote { border-left: 4px solid #f59e0b; background: #fffbeb; padding: .6rem .9rem; border-radius: .4rem; color: #78350f; margin: .5rem 0; }
+.card-md table { width: 100%; border-collapse: collapse; margin: .5rem 0; font-size: .95rem; display: block; overflow-x: auto; }
+.card-md th, .card-md td { border: 1px solid #e2e8f0; padding: .4rem .6rem; text-align: left; }
+.card-md th { background: #f8fafc; }

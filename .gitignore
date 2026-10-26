@@ -1,0 +1,11 @@
+# 教師版與學生資料一律不進公開 repo
+teacher/
+*_teacher.html
+*教師版*
+private/
+*.csv
+*.xlsx
+
+# 系統檔
+.DS_Store
+__pycache__/

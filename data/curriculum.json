@@ -1,0 +1,81 @@
+{
+  "_說明": "主鍵是「主軸 → 課綱學習內容代碼 → 知識成分（kc）」，與教科書版本無關。editions 只是版本的章節對照，決定網站顯示順序。題目掛在 kc 上。",
+  "axes": [
+    {
+      "id": "wave",
+      "name": "波與訊息",
+      "codes": [
+        {
+          "code": "Ka-IV-1",
+          "text": "波的特徵，例如：波峰、波谷、波長、頻率、波速、振幅。",
+          "kcs": [
+            {"id": "wave-energy", "name": "波傳遞的是能量，介質只在原處振動"},
+            {"id": "wave-parts", "name": "波峰、波谷、振幅與波長"},
+            {"id": "wave-speed", "name": "頻率、週期與波速"}
+          ]
+        },
+        {
+          "code": "Ka-IV-2",
+          "text": "波傳播的類型，例如：橫波和縱波。",
+          "kcs": [
+            {"id": "wave-types", "name": "橫波與縱波"}
+          ]
+        },
+        {
+          "code": "Ka-IV-3",
+          "text": "介質的種類、狀態、密度及溫度等因素會影響聲音傳播的速率。",
+          "kcs": [
+            {"id": "sound-source", "name": "聲音由振動產生，是縱波"},
+            {"id": "sound-medium", "name": "傳聲需要介質，真空不能傳聲"},
+            {"id": "sound-speed", "name": "聲速與介質、溫度有關"}
+          ]
+        },
+        {
+          "code": "Ka-IV-5",
+          "text": "耳朵可以分辨不同的聲音，例如：大小、高低及音色，但人耳聽不到超聲波。",
+          "kcs": [
+            {"id": "sound-three", "name": "音量、音調、音色與示波器波形"},
+            {"id": "pitch-source", "name": "發聲體與音調（先判斷誰在振動）"},
+            {"id": "music-noise", "name": "樂音與噪音"},
+            {"id": "hearing-range", "name": "可聽範圍、超聲波與次聲波"}
+          ]
+        },
+        {
+          "code": "Ka-IV-4",
+          "text": "聲波會反射，可以做為測量、傳播等用途。",
+          "kcs": [
+            {"id": "echo", "name": "回聲與回聲測距"},
+            {"id": "reflect-apps", "name": "聲波反射與超聲波的應用"}
+          ]
+        }
+      ]
+    }
+  ],
+  "editions": {
+    "school": {
+      "name": "本校使用版本",
+      "_待確認": "節名取自既有教材（sound_lab、段考複習站），請確認出版社後改 name。",
+      "semesters": [
+        {"id": "g8a", "name": "八上（第三冊）", "chapters": [
+          {"id": "g8a-ch3", "no": 3, "name": "波動與聲音", "sections": [
+            {"id": "g8a-3-1", "no": "3-1", "name": "波的傳播與特徵",
+             "kcs": ["wave-energy", "wave-types", "wave-parts", "wave-speed"],
+             "sims": [{"title": "段考複習站：繩波模擬與傳播方向預測", "href": "https://cwkuo99.github.io/test/exam_review_g8.html#ch3"}]},
+            {"id": "g8a-3-2", "no": "3-2", "name": "聲音的形成",
+             "kcs": ["sound-source", "sound-medium", "sound-speed"],
+             "sims": [{"title": "聲音模擬實驗室：發聲體、真空鐘罩、聲速賽跑", "href": "https://cwkuo99.github.io/test/sound_lab.html#s32"}]},
+            {"id": "g8a-3-3", "no": "3-3", "name": "多變的聲音",
+             "kcs": ["sound-three", "pitch-source", "music-noise"],
+             "sims": [{"title": "聲音模擬實驗室：試管、示波器、樂音與噪音", "href": "https://cwkuo99.github.io/test/sound_lab.html#s33"}]},
+            {"id": "g8a-3-4", "no": "3-4", "name": "聲波的傳播與應用",
+             "kcs": ["echo", "reflect-apps", "hearing-range"],
+             "sims": [{"title": "聲音模擬實驗室：回聲、聲納、誰聽得到", "href": "https://cwkuo99.github.io/test/sound_lab.html#s34"}]}
+          ]}
+        ]},
+        {"id": "g8b", "name": "八下（第四冊）", "chapters": []},
+        {"id": "g9a", "name": "九上（第五冊）", "chapters": []},
+        {"id": "g9b", "name": "九下（第六冊）", "chapters": []}
+      ]
+    }
+  }
+}

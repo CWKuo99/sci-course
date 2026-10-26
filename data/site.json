@@ -1,0 +1,4 @@
+{
+  "submitUrl": "",
+  "_說明": "submitUrl 填入 Apps Script 網頁應用程式的網址（https://script.google.com/macros/s/…/exec）。留空時不回收資料，只存在學生自己的裝置。"
+}
