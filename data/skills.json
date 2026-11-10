@@ -1,0 +1,44 @@
+[
+ {
+  "id": "normal-first",
+  "name": "先畫法線，角度一律從法線量",
+  "detail": "入射角、反射角、折射角都是光線和法線的夾角。題目給的若是「光線和鏡面（界面）的夾角」，要先用 90° 減掉。",
+  "kcs": ["reflect-law", "refract-law"]
+ },
+ {
+  "id": "curved-normal",
+  "name": "曲面的法線通過球心",
+  "detail": "曲面上取入射點的切線當作界面；法線垂直切線，所以就是半徑的方向。",
+  "kcs": ["refract-law", "curved-mirror", "dispersion"]
+ },
+ {
+  "id": "air-angle-larger",
+  "name": "在空氣中，光線離法線比較遠",
+  "detail": "光在空氣和水（或玻璃）之間折射時，不管往哪個方向走，空氣那一側的角度都比較大。",
+  "kcs": ["refract-law", "refract-apps"]
+ },
+ {
+  "id": "mirror-symmetry",
+  "name": "像和物對鏡面對稱（鏡面要延長）",
+  "detail": "像在鏡面所在直線（平面）的另一側，距離相等、連線垂直鏡面。作圖時鏡面要延長，像的位置和鏡子多大無關。",
+  "kcs": ["plane-mirror"]
+ },
+ {
+  "id": "line-through-mirror",
+  "name": "看得到像：眼睛和像的連線要穿過鏡子本身",
+  "detail": "鏡子的大小只決定從哪裡看得到像。等效作法：把眼睛也鏡射成像，從它穿過鏡子兩端畫線，夾出的範圍就是鏡中視野。",
+  "kcs": ["mirror-view", "plane-mirror"]
+ },
+ {
+  "id": "similar-triangles",
+  "name": "相似三角形（數學工具）",
+  "detail": "兩條視線夾出的三角形，在鏡子處和在像處形狀相同，對應邊成比例。",
+  "kcs": ["mirror-view"]
+ },
+ {
+  "id": "angle-sum",
+  "name": "三角形內角和 180°（數學工具）",
+  "detail": "光線在兩面鏡子之間來回時，光路和鏡面常會圍成三角形，用內角和找出未知的角。",
+  "kcs": ["reflect-law"]
+ }
+]
