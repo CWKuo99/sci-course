@@ -119,9 +119,71 @@ if (LEARN / "data" / "curriculum.json").exists():
                         checks = sum(per_kc[k][0] for k in s["kcs"])
                         preds = sum(per_kc[k][1] for k in s["kcs"])
                         if checks < 3:
-                            err(f"{s['id']} 檢核題只有 {checks} 題，至少要 3 題（章末檢核每節抽 2 題）")
+                            msg = f"{s['id']} 檢核題只有 {checks} 題，至少要 3 題（章末檢核每節抽 2 題）"
+                            # draft：節的骨架已上線、檢核題還在寫。降為警告，避免卡住其他內容
+                            (warn if s.get("draft") else err)(msg + ("（建置中）" if s.get("draft") else ""))
                         if not preds:
                             warn(f"{s['id']} 沒有預測題")
+        # 5. 常見難題與招式
+        skill_ids = set()
+        sk_path = LEARN / "data" / "skills.json"
+        if sk_path.exists():
+            try:
+                for s in json.loads(sk_path.read_text(encoding="utf-8")):
+                    if s.get("id") in skill_ids:
+                        err(f"招式 id 重複：{s.get('id')}")
+                    skill_ids.add(s.get("id"))
+                    if not s.get("name") or not s.get("detail"):
+                        err(f"招式 {s.get('id')} 缺少 name 或 detail")
+                    for k in s.get("kcs", []):
+                        if k not in kc_code:
+                            err(f"招式 {s.get('id')} 用到不存在的知識成分：{k}")
+            except json.JSONDecodeError as e:
+                err(f"data/skills.json 不是合法 JSON：{e}")
+        pr_path = LEARN / "data" / "problems.json"
+        if pr_path.exists():
+            engines_js = (LEARN / "assets" / "engines.js").read_text(encoding="utf-8") if (LEARN / "assets" / "engines.js").exists() else ""
+            chapter_ids = {ch["id"] for ed in cur["editions"].values() for sem in ed["semesters"] for ch in sem["chapters"]}
+            try:
+                probs = json.loads(pr_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as e:
+                err(f"data/problems.json 不是合法 JSON：{e}")
+                probs = []
+            for pr in probs:
+                pid = pr.get("id", "?")
+                where = f"data/problems.json {pid}"
+                if pid in seen:
+                    err(f"{where}：題號和題庫重複")
+                seen.add(pid)
+                m = re.fullmatch(r"([A-Z][a-z]-IV-\d+)-9\d\d", pid)
+                if not m:
+                    err(f"{where}：常見難題題號要是 <課綱代碼>-9xx")
+                kcs = pr.get("kcs", [])
+                if not kcs or any(k not in kc_code for k in kcs):
+                    err(f"{where}：kcs 要有、且都要存在於 curriculum.json")
+                elif m and kc_code[kcs[0]] != m.group(1):
+                    err(f"{where}：第一個 kc 要屬於 {m.group(1)}")
+                for s in pr.get("skills", []):
+                    if s not in skill_ids:
+                        err(f"{where}：招式 {s} 不存在於 data/skills.json")
+                if pr.get("chapter") not in chapter_ids:
+                    err(f"{where}：chapter {pr.get('chapter')} 不存在")
+                if pr.get("license") not in ("自編", "公開考題"):
+                    err(f"{where}：license 只能是 自編 或 公開考題（參考書、講義、習作的題目不能進公開 repo）")
+                if pr.get("license") == "公開考題" and not pr.get("source"):
+                    err(f"{where}：公開考題要寫出處 source")
+                if f"'{pr.get('engine')}'" not in engines_js and f" {pr.get('engine')}," not in engines_js:
+                    err(f"{where}：assets/engines.js 沒有引擎 {pr.get('engine')}")
+                opts = pr.get("options", [])
+                if sum(1 for o in opts if o.get("ok")) != 1:
+                    err(f"{where}：正確選項要剛好一個")
+                if [o.get("k") for o in opts] != ["A", "B", "C", "D", "E"][:len(opts)]:
+                    err(f"{where}：選項代號要依序是 A、B、C…（解析步驟會引用代號，不能打亂）")
+                for o in opts:
+                    if not o.get("why") or (not o.get("ok") and not o.get("mis")):
+                        err(f"{where}：選項 {o.get('k')} 缺少 why 或 mis")
+                if not pr.get("stem") or not pr.get("explain") or not pr.get("title"):
+                    err(f"{where}：缺少 title、stem 或 explain")
     site = LEARN / "data" / "site.json"
     if site.exists():
         url = json.loads(site.read_text(encoding="utf-8")).get("submitUrl", "")
