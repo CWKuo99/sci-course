@@ -47,6 +47,55 @@
             {"id": "echo", "name": "回聲與回聲測距"},
             {"id": "reflect-apps", "name": "聲波反射與超聲波的應用"}
           ]
+        },
+        {
+          "code": "Ka-IV-6",
+          "text": "由針孔成像、影子實驗驗證與說明光的直進性。",
+          "kcs": [
+            {"id": "pinhole", "name": "針孔成像：倒立的實像，形狀由物體決定"},
+            {"id": "shadow", "name": "影子、本影與半影"}
+          ]
+        },
+        {
+          "code": "Ka-IV-7",
+          "text": "光速的大小和影響光速的因素。",
+          "kcs": [
+            {"id": "light-speed", "name": "光速與介質"}
+          ]
+        },
+        {
+          "code": "Ka-IV-8",
+          "text": "透過實驗探討光的反射與折射規律。",
+          "kcs": [
+            {"id": "reflect-law", "name": "反射定律：入射角與反射角都從法線量"},
+            {"id": "plane-mirror", "name": "平面鏡成像：像與物對鏡面對稱"},
+            {"id": "mirror-view", "name": "鏡中看得到的範圍"},
+            {"id": "curved-mirror", "name": "凹面鏡與凸面鏡"},
+            {"id": "refract-law", "name": "折射：偏向或偏離法線"},
+            {"id": "refract-apps", "name": "折射造成的現象（視深、筷子變彎）"}
+          ]
+        },
+        {
+          "code": "Ka-IV-9",
+          "text": "生活中有許多實用光學儀器，如透鏡、面鏡、眼睛、眼鏡、顯微鏡等。",
+          "kcs": [
+            {"id": "lens-image", "name": "凸透鏡與凹透鏡成像"},
+            {"id": "optical-devices", "name": "眼睛、照相機與顯微鏡"}
+          ]
+        },
+        {
+          "code": "Ka-IV-10",
+          "text": "陽光經過三稜鏡可以分散成各種色光。",
+          "kcs": [
+            {"id": "dispersion", "name": "色散與彩虹"}
+          ]
+        },
+        {
+          "code": "Ka-IV-11",
+          "text": "物體的顏色是光選擇性反射的結果。",
+          "kcs": [
+            {"id": "object-color", "name": "物體的顏色與色光"}
+          ]
         }
       ]
     }
@@ -70,6 +119,27 @@
             {"id": "g8a-3-4", "no": "3-4", "name": "聲波的傳播與應用",
              "kcs": ["echo", "reflect-apps", "hearing-range"],
              "sims": [{"title": "聲音模擬實驗室：回聲、聲納、誰聽得到", "href": "https://cwkuo99.github.io/test/sound_lab.html#s34"}]}
+          ]},
+          {"id": "g8a-ch4", "no": 4, "name": "光、影像與顏色", "sections": [
+            {"id": "g8a-4-1", "no": "4-1", "name": "光的傳播", "draft": true,
+             "kcs": ["pinhole", "shadow", "light-speed"],
+             "sims": [{"title": "光的探究實驗室：針孔成像", "href": "https://cwkuo99.github.io/test/optics_lab.html#pinhole"},
+                      {"title": "光的探究實驗室：影子、日食與月食", "href": "https://cwkuo99.github.io/test/optics_lab.html#shadow"}]},
+            {"id": "g8a-4-2", "no": "4-2", "name": "光的反射與面鏡成像", "draft": true,
+             "kcs": ["reflect-law", "plane-mirror", "mirror-view", "curved-mirror"],
+             "sims": [{"title": "光的探究實驗室：反射定律", "href": "https://cwkuo99.github.io/test/optics_lab.html#reflect"},
+                      {"title": "光的探究實驗室：平面鏡與球面鏡", "href": "https://cwkuo99.github.io/test/optics_lab.html#mirror"}]},
+            {"id": "g8a-4-3", "no": "4-3", "name": "光的折射", "draft": true,
+             "kcs": ["refract-law", "refract-apps"],
+             "sims": [{"title": "光的探究實驗室：光的折射", "href": "https://cwkuo99.github.io/test/optics_lab.html#refract"}]},
+            {"id": "g8a-4-4", "no": "4-4", "name": "透鏡成像", "draft": true,
+             "kcs": ["lens-image", "optical-devices"],
+             "sims": [{"title": "光的探究實驗室：透鏡成像光具座", "href": "https://cwkuo99.github.io/test/optics_lab.html#bench"},
+                      {"title": "光的探究實驗室：眼睛、照相機、顯微鏡", "href": "https://cwkuo99.github.io/test/optics_lab.html#eye"}]},
+            {"id": "g8a-4-5", "no": "4-5", "name": "色散與顏色", "draft": true,
+             "kcs": ["dispersion", "object-color"],
+             "sims": [{"title": "光的探究實驗室：色散與物體的顏色", "href": "https://cwkuo99.github.io/test/optics_lab.html#color"},
+                      {"title": "光的探究實驗室：彩虹與三原色", "href": "https://cwkuo99.github.io/test/optics_lab.html#rainbow"}]}
           ]}
         ]},
         {"id": "g8b", "name": "八下（第四冊）", "chapters": []},
